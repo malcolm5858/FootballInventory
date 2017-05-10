@@ -19,6 +19,10 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     var qrCodeMessage: String?
     var backView: String?
     
+    var delegate : saveQrDelegate?
+    @IBAction func CancelAction(_ sender: Any) {
+            self.dismiss(animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         do{
@@ -81,35 +85,44 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
             
             if metadataObj.stringValue != nil {
                 qrCodeMessage? = metadataObj.stringValue
-                performSegue(withIdentifier: "Back", sender: self)
+                if(self.delegate) != nil{
+                    delegate?.saveQr(qrCode: qrCodeMessage!, backView: backView!)
+                    self.dismiss(animated: true, completion: nil)
+                }
+                
             }
         }
         
     }
-    //TODO: implement
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch (backView){
-        case "Small"?:
-            let destination:AddInventoryViewController = segue.destination as! AddInventoryViewController
-            destination.smallQrCode = qrCodeMessage
-        case "Medium"?:
-            let destination:AddInventoryViewController = segue.destination as! AddInventoryViewController
-            destination.mediumQrCode = qrCodeMessage
-        case "Large"?:
-            let destination:AddInventoryViewController = segue.destination as! AddInventoryViewController
-            destination.largeQrCode = qrCodeMessage
-        case "XtraLarge"?:
-            let destination:AddInventoryViewController = segue.destination as! AddInventoryViewController
-            destination.xtraLargeQrCode = qrCodeMessage
-        case "XtraXtraLarge"?:
-            let destination:AddInventoryViewController = segue.destination as! AddInventoryViewController
-            destination.xtraXtraLargeQrCode = qrCodeMessage
-        case "XtraXtraXtraLarge"?:
-            let destination:AddInventoryViewController = segue.destination as! AddInventoryViewController
-            destination.xtraXtraXtraLargeQrCode = qrCodeMessage
-        default: break
-        }
-    }
+    //probaly will not work trying a diffrent way
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        switch (backView){
+//        case "Small"?:
+//            let destination:AddInventoryViewController = segue.destination as! AddInventoryViewController
+//            destination.smallQrCode = qrCodeMessage
+//        case "Medium"?:
+//            let destination:AddInventoryViewController = segue.destination as! AddInventoryViewController
+//            destination.mediumQrCode = qrCodeMessage
+//        case "Large"?:
+//            let destination:AddInventoryViewController = segue.destination as! AddInventoryViewController
+//            destination.largeQrCode = qrCodeMessage
+//        case "XtraLarge"?:
+//            let destination:AddInventoryViewController = segue.destination as! AddInventoryViewController
+//            destination.xtraLargeQrCode = qrCodeMessage
+//        case "XtraXtraLarge"?:
+//            let destination:AddInventoryViewController = segue.destination as! AddInventoryViewController
+//            destination.xtraXtraLargeQrCode = qrCodeMessage
+//        case "XtraXtraXtraLarge"?:
+//            let destination:AddInventoryViewController = segue.destination as! AddInventoryViewController
+//            destination.xtraXtraXtraLargeQrCode = qrCodeMessage
+//        default: break
+//        }
+//    }
     
 
 }
+
+public protocol saveQrDelegate {
+    func saveQr( qrCode: String, backView: String)
+}
+

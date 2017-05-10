@@ -13,13 +13,15 @@ public class Player{
     let firstName: String
     let lastName: String
     let ref: FIRDatabaseReference?
-    let items: [String]
+    var items: [inventoryItem]
+    var itemDicts: [NSDictionary]
     
-    init(firstName: String, lastName: String) {
+    init(firstName: String, lastName: String, items: [inventoryItem]) {
         self.firstName = firstName
         self.lastName = lastName
         self.ref = nil
-        self.items = []
+        self.items = items
+        self.itemDicts = []
     }
     
     init(snapshot: FIRDataSnapshot){
@@ -27,11 +29,18 @@ public class Player{
         self.firstName = snapshotValue["firstName"] as! String
         self.lastName = snapshotValue["lastName"] as! String
         self.ref = snapshot.ref
-        self.items = snapshotValue["items"] as! [String]
+        self.itemDicts = snapshotValue["items"] as! [NSDictionary]
+        self.items = []
+        
     }
-    
+    func addInventoryItem(itemToAdd: inventoryItem){
+        items.append(itemToAdd)
+    }
     func toDict() -> Any {
-        return ["firstName": firstName, "lastName": lastName, "items": items]
+        for x in 0 ..< items.count{
+            itemDicts[x] = items[x].toDict() as! NSDictionary
+        }
+        return ["firstName": firstName, "lastName": lastName, "items": itemDicts]
     }
     
     

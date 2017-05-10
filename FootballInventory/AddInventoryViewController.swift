@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseDatabase
 
-class AddInventoryViewController: UIViewController {
+class AddInventoryViewController: UIViewController, saveQrDelegate{
 
     
         var ref: FIRDatabaseReference!
@@ -44,6 +44,24 @@ class AddInventoryViewController: UIViewController {
     
     
     
+    func saveQr(qrCode: String, backView: String) {
+        switch (backView){
+                    case "Small":
+                            smallQrCode = qrCode
+                    case "Medium":
+                            mediumQrCode = qrCode
+                    case "Large":
+                            largeQrCode = qrCode
+                    case "XtraLarge":
+                            xtraLargeQrCode = qrCode
+                    case "XtraXtraLarge":
+                            xtraXtraLargeQrCode = qrCode
+                    case "XtraXtraXtraLarge":
+                        xtraXtraXtraLargeQrCode = qrCode
+                    default: break
+                    }
+
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -174,46 +192,36 @@ class AddInventoryViewController: UIViewController {
         
         if(Small.isOn){
             print("No")
-            let inventoryTemp = inventoryItem(name: name.text!, qrCode: "Test", price: price.text!)
+            let inventoryTemp = inventoryItem(name: name.text!, price: price.text!, qrCode: "Test")
             
             let tempRef = self.ref.child((name.text?.lowercased())!)
             tempRef.setValue(inventoryTemp.toDict())
         }
         else{
-            let mainInventoryTemp = inventoryItem(name: name.text!, price: price.text!)
-            
+
+            var sizes: NSMutableDictionary = NSMutableDictionary()
             let label = name.text?.lowercased()
             if(smallQrCode != nil){
-                let tempSmallRef = self.ref.child(label! + "Small")
-                let smallInventoryTemp = inventoryItem(itemWithSizes: mainInventoryTemp, qrCode: smallQrCode!, size: "Small")
-                tempSmallRef.setValue(smallInventoryTemp.toDict())
+                sizes["Small"] = smallQrCode
             }
             if(mediumQrCode != nil){
-                let tempMediumRef = self.ref.child(label! + "Medium")
-                let mediumInventoryTemp = inventoryItem(itemWithSizes: mainInventoryTemp, qrCode: mediumQrCode!, size: "Medium")
-                tempMediumRef.setValue(mediumInventoryTemp.toDict())
+                sizes["medium"] = mediumQrCode
             }
             if(largeQrCode != nil){
-                let tempLargeRef = self.ref.child(label! + "Large")
-                let largeInventoryTemp = inventoryItem(itemWithSizes: mainInventoryTemp, qrCode: largeQrCode!, size: "Large")
-                tempLargeRef.setValue(largeInventoryTemp.toDict())
+                sizes["Large"] = largeQrCode
             }
             if(xtraLargeQrCode != nil){
-                let tempXtraLargeRef = self.ref.child(label! + "XtraLarge")
-                let XtraLargeInventoryTemp = inventoryItem(itemWithSizes: mainInventoryTemp, qrCode: xtraLargeQrCode!, size: "XtraLarge")
-                tempXtraLargeRef.setValue(XtraLargeInventoryTemp.toDict())
+                sizes["XtraLarge"] = xtraLargeQrCode
             }
             if(xtraXtraLargeQrCode != nil){
-                let tempXtraXtraLargeRef = self.ref.child(label! + "XtraXtraLarge")
-                let XtraXtraLargeInventoryTemp = inventoryItem(itemWithSizes: mainInventoryTemp, qrCode: xtraXtraLargeQrCode!, size: "XtraXtraLarge")
-                tempXtraXtraLargeRef.setValue(XtraXtraLargeInventoryTemp.toDict())
+               sizes["XtraXtraLarge"] = xtraXtraLargeQrCode
             }
             if(xtraXtraXtraLargeQrCode != nil){
-                let tempXtraXtraXtraLargeRef = self.ref.child(label! + "XtraXtraXtraLarge")
-                let XtraXtraXtraLargeInventoryTemp = inventoryItem(itemWithSizes: mainInventoryTemp, qrCode: xtraXtraXtraLargeQrCode!, size: "XtraXtraXtraLarge")
-                tempXtraXtraXtraLargeRef.setValue(XtraXtraXtraLargeInventoryTemp.toDict())
+               sizes["XtraXtraXtraLarge"] = xtraXtraXtraLargeQrCode
             }
-            
+            let inventory: inventoryItem = inventoryItem(name: name.text!, qrCode: "", price: price.text!, size: sizes)
+            let tempRef = self.ref.child(label!)
+            tempRef.setValue(inventory.toDict())
             
         }
         

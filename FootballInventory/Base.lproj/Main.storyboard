@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="S8G-FE-UVE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="S8G-FE-UVE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -421,37 +421,49 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlH-WR-2Lu">
                                 <rect key="frame" x="288" y="271" width="30" height="30"/>
                                 <connections>
-                                    <segue destination="mOF-Eq-6Vf" kind="show" identifier="Small" id="5fK-48-dLh"/>
+                                    <segue destination="mOF-Eq-6Vf" kind="popoverPresentation" identifier="Small" popoverAnchorView="rlH-WR-2Lu" id="5fK-48-dLh">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ux5-ni-IcC">
                                 <rect key="frame" x="288" y="314" width="30" height="30"/>
                                 <connections>
-                                    <segue destination="mOF-Eq-6Vf" kind="show" identifier="Medium" id="IgH-vC-cus"/>
+                                    <segue destination="mOF-Eq-6Vf" kind="popoverPresentation" identifier="Medium" popoverAnchorView="ux5-ni-IcC" id="IgH-vC-cus">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2U-Rh-byu">
                                 <rect key="frame" x="288" y="345" width="30" height="30"/>
                                 <connections>
-                                    <segue destination="mOF-Eq-6Vf" kind="show" identifier="Large" id="PWw-ZK-Zep"/>
+                                    <segue destination="mOF-Eq-6Vf" kind="popoverPresentation" identifier="Large" popoverAnchorView="H2U-Rh-byu" id="PWw-ZK-Zep">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTE-nw-4EC">
                                 <rect key="frame" x="288" y="389" width="30" height="30"/>
                                 <connections>
-                                    <segue destination="mOF-Eq-6Vf" kind="show" identifier="XtraLarge" id="1Q3-me-otf"/>
+                                    <segue destination="mOF-Eq-6Vf" kind="popoverPresentation" identifier="XtraLarge" popoverAnchorView="KTE-nw-4EC" id="1Q3-me-otf">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FpP-41-TCT">
                                 <rect key="frame" x="288" y="424" width="30" height="30"/>
                                 <connections>
-                                    <segue destination="mOF-Eq-6Vf" kind="show" identifier="XtraXtraLarge" id="xzc-XQ-7kV"/>
+                                    <segue destination="mOF-Eq-6Vf" kind="popoverPresentation" identifier="XtraXtraLarge" popoverAnchorView="FpP-41-TCT" id="xzc-XQ-7kV">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bz-K3-q17">
                                 <rect key="frame" x="288" y="468" width="30" height="30"/>
                                 <connections>
-                                    <segue destination="mOF-Eq-6Vf" kind="show" identifier="XtraXtraXtraLarge" id="9FB-5d-CE6"/>
+                                    <segue destination="mOF-Eq-6Vf" kind="popoverPresentation" identifier="XtraXtraXtraLarge" popoverAnchorView="8bz-K3-q17" id="9FB-5d-CE6">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Qn-ts-rCN">
@@ -557,7 +569,7 @@
                                     <navigationItem title="Scan QR Code" id="86C-0v-wXo">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="NdK-EL-5cu">
                                             <connections>
-                                                <segue destination="S8G-FE-UVE" kind="show" id="JYa-Od-Ujn"/>
+                                                <action selector="CancelAction:" destination="mOF-Eq-6Vf" id="sKE-8D-b04"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -571,9 +583,6 @@
                             <constraint firstItem="DS1-Ec-jBV" firstAttribute="top" secondItem="8G5-pd-Lcl" secondAttribute="bottom" id="wTh-0d-r4q"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <segue destination="S8G-FE-UVE" kind="show" identifier="Back" id="doA-NP-wcs"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Zc-m3-IQA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -659,10 +668,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Tiy-5Q-kfB"/>
         <segue reference="vDE-Pd-Xzs"/>
-        <segue reference="doA-NP-wcs"/>
-        <segue reference="1Q3-me-otf"/>
+        <segue reference="9FB-5d-CE6"/>
+        <segue reference="Tiy-5Q-kfB"/>
         <segue reference="thM-Td-E1C"/>
     </inferredMetricsTieBreakers>
 </document>

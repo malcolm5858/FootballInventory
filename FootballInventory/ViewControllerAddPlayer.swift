@@ -32,7 +32,7 @@ class ViewControllerAddPlayer: UIViewController {
             firstName = firstNameInput.text!
             lastName = lastNameInput.text!
         
-            let playerTemp = Player(firstName: firstName, lastName: lastName)
+            let playerTemp = Player(firstName: firstName, lastName: lastName, items: [])
             
             let tempRef = self.ref.child(firstName.lowercased())
             tempRef.setValue(playerTemp.toDict())
