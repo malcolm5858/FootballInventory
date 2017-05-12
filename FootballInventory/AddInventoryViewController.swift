@@ -107,57 +107,59 @@ class AddInventoryViewController: UIViewController, saveQrDelegate{
             SmallQr.setTitle("Scan Qr", for: .normal)
         }
         else{
-            SmallQr.setTitle("", for: .normal)        }
+            SmallQr.setTitle("", for: .normal)
+            SmallQr.isEnabled = false
+        }
     }
     @IBAction func MediumAction(_ sender: UISwitch){
         if sender.isOn{
             MediumQr.isEnabled = true
-            MediumQr.titleLabel?.text = "Scan Qr"
+            MediumQr.setTitle("Scan Qr", for: .normal)
         }
         else{
+            MediumQr.setTitle("", for: .normal)
             MediumQr.isEnabled = false
-            MediumQr.titleLabel?.text = ""
         }
 
     }
     @IBAction func  LargeAction(_ sender: UISwitch){
         if sender.isOn{
             LargeQr.isEnabled = true
-            LargeQr.titleLabel?.text = "Scan Qr"
+            LargeQr.setTitle("Scan Qr", for: .normal)
         }
         else{
+            LargeQr.setTitle("", for: .normal)
             LargeQr.isEnabled = false
-            LargeQr.titleLabel?.text = ""
         }
     }
     @IBAction func XtraLargeAction(_ sender: UISwitch) {
         if sender.isOn{
             XtraLargeQr.isEnabled = true
-            XtraLargeQr.titleLabel?.text = "Scan Qr"
+            XtraLargeQr.setTitle("Scan Qr", for: .normal)
         }
         else{
+            XtraLargeQr.setTitle("", for: .normal)
             XtraLargeQr.isEnabled = false
-            XtraLargeQr.titleLabel?.text = ""
         }
     }
     @IBAction func XtraXtraLargeAction(_ sender: UISwitch) {
         if sender.isOn{
             XtraXtraLargeQr.isEnabled = true
-            XtraXtraLargeQr.titleLabel?.text = "Scan Qr"
+            XtraXtraLargeQr.setTitle("Scan Qr", for: .normal)
         }
         else{
+            XtraXtraLargeQr.setTitle("", for: .normal)
             XtraXtraLargeQr.isEnabled = false
-            XtraXtraLargeQr.titleLabel?.text = ""
         }
     }
     @IBAction func XtraXtraXtraLargeAction(_ sender: UISwitch) {
         if sender.isOn{
             XtraXtraXtraLargeQr.isEnabled = true
-            XtraXtraXtraLargeQr.titleLabel?.text = "Scan Qr"
+            XtraXtraXtraLargeQr.setTitle("Scan Qr", for: .normal)
         }
         else{
+            XtraXtraXtraLargeQr.setTitle("", for: .normal)
             XtraXtraXtraLargeQr.isEnabled = false
-            XtraXtraXtraLargeQr.titleLabel?.text = ""
         }
     }
    
@@ -190,9 +192,9 @@ class AddInventoryViewController: UIViewController, saveQrDelegate{
     
     func Save() {
         
-        if(Small.isOn){
+        if !Small.isOn{
             print("No")
-            let inventoryTemp = inventoryItem(name: name.text!, price: price.text!, qrCode: "Test")
+            let inventoryTemp = inventoryItem(name: name.text!, price: price.text!, qrCode: "")
             
             let tempRef = self.ref.child((name.text?.lowercased())!)
             tempRef.setValue(inventoryTemp.toDict())

@@ -29,7 +29,12 @@ public class Player{
         self.firstName = snapshotValue["firstName"] as! String
         self.lastName = snapshotValue["lastName"] as! String
         self.ref = snapshot.ref
-        self.itemDicts = snapshotValue["items"] as! [NSDictionary]
+        if(snapshotValue["items"] != nil){
+            self.itemDicts = snapshotValue["items"] as! [NSDictionary]
+        }
+        else{
+            self.itemDicts = []
+        }
         self.items = []
         
     }

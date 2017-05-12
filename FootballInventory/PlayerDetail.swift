@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlayerDetail: UIViewController {
+class PlayerDetail: UIViewController, saveQrDelegate {
 
     var firstName = ""
     var lastName = ""
@@ -34,6 +34,9 @@ class PlayerDetail: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func saveQr( qrCode: String, backView: String){
+        
+    }
 
     
 
