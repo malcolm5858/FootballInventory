@@ -94,30 +94,7 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         }
         
     }
-    //probaly will not work trying a diffrent way
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        switch (backView){
-//        case "Small"?:
-//            let destination:AddInventoryViewController = segue.destination as! AddInventoryViewController
-//            destination.smallQrCode = qrCodeMessage
-//        case "Medium"?:
-//            let destination:AddInventoryViewController = segue.destination as! AddInventoryViewController
-//            destination.mediumQrCode = qrCodeMessage
-//        case "Large"?:
-//            let destination:AddInventoryViewController = segue.destination as! AddInventoryViewController
-//            destination.largeQrCode = qrCodeMessage
-//        case "XtraLarge"?:
-//            let destination:AddInventoryViewController = segue.destination as! AddInventoryViewController
-//            destination.xtraLargeQrCode = qrCodeMessage
-//        case "XtraXtraLarge"?:
-//            let destination:AddInventoryViewController = segue.destination as! AddInventoryViewController
-//            destination.xtraXtraLargeQrCode = qrCodeMessage
-//        case "XtraXtraXtraLarge"?:
-//            let destination:AddInventoryViewController = segue.destination as! AddInventoryViewController
-//            destination.xtraXtraXtraLargeQrCode = qrCodeMessage
-//        default: break
-//        }
-//    }
+
     
 
 }

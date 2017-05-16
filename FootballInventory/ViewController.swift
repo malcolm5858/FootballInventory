@@ -67,6 +67,7 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
         {
             destination.firstName = players[playerIndex].firstName
             destination.lastName = players[playerIndex].lastName
+            destination.playerIndex = playerIndex
         }
     }
     
