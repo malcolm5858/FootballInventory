@@ -38,13 +38,12 @@ class PlayerDetail: UIViewController, saveQrDelegate {
     //TODO: need to look at this agian make sure it works 
     func saveQr( qrCode: String, backView: String){
         if backView == "PlayerDetail"{
-            findQr(qrCode: qrCode)
-        }
+                    }
     }
     
     func findQr(inputQrCode: String) -> inventoryItem{
-        var returnInventoryItem: inventoryItem
         ref.observe(.value, with: { snapshot in
+            var returnInventoryItem: inventoryItem
             for item in snapshot.children{
                 let snapshotValue = (item as! FIRDataSnapshot).value as! [String: AnyObject]
                 if((snapshotValue["qrCode"] as! String) == ""){

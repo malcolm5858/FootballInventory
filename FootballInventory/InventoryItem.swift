@@ -51,19 +51,6 @@ class inventoryItem{
         self.price = dictonary["Price"] as? String
         self.ref = nil
     }
-    init(snapshot: FIRDataSnapshot){
-        let snapshotValue = snapshot.value as! [String: AnyObject]
-        self.name = snapshotValue["name"] as! String
-        self.qrCode = snapshotValue["qrCode"] as! String
-        if(snapshotValue["size"] != nil){
-            self.size = snapshotValue["size"] as! NSDictionary
-        }
-        else{
-            self.size = [:]
-        }
-        self.price = snapshotValue["Price"] as? String
-        self.ref = snapshot.ref
-    }
     func toDict() -> Any {
         return ["name": name, "qrCode": qrCode, "size": size, "Price": price!]
     }

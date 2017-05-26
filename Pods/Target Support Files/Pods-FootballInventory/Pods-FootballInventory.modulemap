@@ -1,0 +1,6 @@
+framework module Pods_FootballInventory {
+  umbrella header "Pods-FootballInventory-umbrella.h"
+
+  export *
+  module * { export * }
+}
