@@ -12,9 +12,9 @@ class inventoryItem{
     
     let name: String
     let qrCode: String
-    var size: NSDictionary =  [:]
+    var size: NSDictionary = [:]
     let ref: FIRDatabaseReference?
-    let price: String?
+    let price: String
     
     init(name: String, price: String, qrCode: String){
         self.name = name
@@ -40,7 +40,7 @@ class inventoryItem{
         else{
             self.size = [:]
         }
-        self.price = snapshotValue["Price"] as? String
+        self.price = snapshotValue["Price"] as! String
         self.ref = snapshot.ref
     }
     init(dictonary: NSDictionary)
@@ -48,11 +48,11 @@ class inventoryItem{
         self.name = dictonary["name"] as! String
         self.qrCode = dictonary["qrCode"] as! String
         self.size = dictonary["size"] as! NSDictionary
-        self.price = dictonary["Price"] as? String
+        self.price = dictonary["Price"] as! String
         self.ref = nil
     }
     func toDict() -> Any {
-        return ["name": name, "qrCode": qrCode, "size": size, "Price": price!]
+        return ["name": name, "qrCode": qrCode, "size": size, "Price": price]
     }
     
     

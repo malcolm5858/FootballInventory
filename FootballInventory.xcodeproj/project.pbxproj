@@ -16,6 +16,7 @@
 		D97CA2771E3778080083C1CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97CA2751E3778080083C1CA /* Main.storyboard */; };
 		D97CA2791E3781660083C1CA /* PlayerDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97CA2781E3781660083C1CA /* PlayerDetail.swift */; };
 		D97CA27D1E3804F10083C1CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D97CA27C1E3804F10083C1CA /* GoogleService-Info.plist */; };
+		D97EEBA81EEEDC7F00B0190E /* InventoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97EEBA71EEEDC7F00B0190E /* InventoryDetail.swift */; };
 		D9A5AA9D1E425C0300AE1B01 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A5AA9C1E425C0300AE1B01 /* InventoryViewController.swift */; };
 		D9C1C33D1E44B4E80046158B /* QRReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C1C33C1E44B4E80046158B /* QRReaderViewController.swift */; };
 		D9F911781E315CA0009CC17C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F911771E315CA0009CC17C /* AppDelegate.swift */; };
@@ -33,6 +34,7 @@
 		D97CA2761E3778080083C1CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D97CA2781E3781660083C1CA /* PlayerDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerDetail.swift; sourceTree = "<group>"; };
 		D97CA27C1E3804F10083C1CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D97EEBA71EEEDC7F00B0190E /* InventoryDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryDetail.swift; sourceTree = "<group>"; };
 		D9A5AA9C1E425C0300AE1B01 /* InventoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
 		D9C1C33C1E44B4E80046158B /* QRReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRReaderViewController.swift; sourceTree = "<group>"; };
 		D9F911741E315CA0009CC17C /* FootballInventory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootballInventory.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +110,7 @@
 				D9F911831E315CA0009CC17C /* LaunchScreen.storyboard */,
 				D9F911861E315CA0009CC17C /* Info.plist */,
 				D97CA27C1E3804F10083C1CA /* GoogleService-Info.plist */,
+				D97EEBA71EEEDC7F00B0190E /* InventoryDetail.swift */,
 			);
 			path = FootballInventory;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				D926E94C1E40D46A00809812 /* InventoryItem.swift in Sources */,
 				D935F51D1E3911860091BED5 /* Player.swift in Sources */,
 				D97CA2791E3781660083C1CA /* PlayerDetail.swift in Sources */,
+				D97EEBA81EEEDC7F00B0190E /* InventoryDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -48,13 +48,13 @@ class InventoryViewController: UIViewController, UITableViewDataSource, UITableV
             var newInventory: [inventoryItem] = []
             
             for item in snapshot.children {
-                print(item)
+                //print(item)
                 newInventory.append(inventoryItem(snapshot: item as! FIRDataSnapshot))
             }
             
             self.Inventory = newInventory
             self.tableView.reloadData()
-            print(self.Inventory.count)
+            //print(self.Inventory.count)
         })
     }
     

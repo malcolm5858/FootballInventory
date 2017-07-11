@@ -15,7 +15,7 @@ class AddInventoryViewController: UIViewController, saveQrDelegate{
         var ref: FIRDatabaseReference!
     
     // UISwitch's
-    @IBOutlet weak var HasSizes: UISwitch!
+   // @IBOutlet weak var HasSizes: UISwitch!
     @IBOutlet weak var Small: UISwitch!
     @IBOutlet weak var Medium: UISwitch!
     @IBOutlet weak var Large: UISwitch!
@@ -23,7 +23,7 @@ class AddInventoryViewController: UIViewController, saveQrDelegate{
     @IBOutlet weak var XtraXtraLarge: UISwitch!
     @IBOutlet weak var XtraXtraXtraLarge: UISwitch!
     //Scan Qr Buttons
-    @IBOutlet weak var HasSizesQr: UIButton!
+    //@IBOutlet weak var HasSizesQr: UIButton!
     @IBOutlet weak var SmallQr: UIButton!
     @IBOutlet weak var MediumQr: UIButton!
     @IBOutlet weak var LargeQr: UIButton!
@@ -45,6 +45,7 @@ class AddInventoryViewController: UIViewController, saveQrDelegate{
     
     
     func saveQr(qrCode: String, backView: String) {
+        //print("performed")
         switch (backView){
                     case "Small":
                             smallQrCode = qrCode
@@ -77,30 +78,30 @@ class AddInventoryViewController: UIViewController, saveQrDelegate{
     
 
     //UISwitchActions
-    @IBAction func HasSizesAction(_ sender: UISwitch) {
-        if HasSizes.isOn{
-            Small.isEnabled = true
-            Medium.isEnabled = true
-            Large.isEnabled = true
-            XtraLarge.isEnabled = true
-            XtraXtraLarge.isEnabled = true
-            XtraXtraXtraLarge.isEnabled = true
-            HasSizesQr.isEnabled = false
-            HasSizesQr.titleLabel?.text = ""
-           
-        }
-        else{
-            Small.isEnabled = true
-            Medium.isEnabled = true
-            Large.isEnabled = true
-            XtraLarge.isEnabled = true
-            XtraXtraLarge.isEnabled = true
-            XtraXtraXtraLarge.isEnabled = true
-            HasSizesQr.isEnabled = false
-            HasSizesQr.titleLabel?.text = "Scan Qr"
-
-        }
-    }
+//    @IBAction func HasSizesAction(_ sender: UISwitch) {
+//        
+//            Small.isEnabled = true
+//            Medium.isEnabled = true
+//            Large.isEnabled = true
+//            XtraLarge.isEnabled = true
+//            XtraXtraLarge.isEnabled = true
+//            XtraXtraXtraLarge.isEnabled = true
+//            //HasSizesQr.isEnabled = false
+//            //HasSizesQr.titleLabel?.text = ""
+//           
+//        
+//        else{
+//            Small.isEnabled = true
+//            Medium.isEnabled = true
+//            Large.isEnabled = true
+//            XtraLarge.isEnabled = true
+//            XtraXtraLarge.isEnabled = true
+//            XtraXtraXtraLarge.isEnabled = true
+//            //HasSizesQr.isEnabled = false
+//            //HasSizesQr.titleLabel?.text = "Scan Qr"
+//
+//        }
+//    }
     @IBAction func SmallAction(_ sender: UISwitch) {
         if sender.isOn{
             SmallQr.isEnabled = true
@@ -168,21 +169,27 @@ class AddInventoryViewController: UIViewController, saveQrDelegate{
             case "Small"?:
                 let destination:QRReaderViewController = segue.destination as! QRReaderViewController
                 destination.backView = segue.identifier
+                destination.delegate = self
             case "Medium"?:
                 let destination:QRReaderViewController = segue.destination as! QRReaderViewController
                 destination.backView = segue.identifier
+                destination.delegate = self
             case "Large"?:
                 let destination:QRReaderViewController = segue.destination as! QRReaderViewController
                 destination.backView = segue.identifier
+                destination.delegate = self
             case "XtraLarge"?:
                 let destination:QRReaderViewController = segue.destination as! QRReaderViewController
                 destination.backView = segue.identifier
+                destination.delegate = self
             case "XtraXtraLarge"?:
                 let destination:QRReaderViewController = segue.destination as! QRReaderViewController
                 destination.backView = segue.identifier
+                destination.delegate = self
             case "XtraXtraXtraLarge"?:
                 let destination:QRReaderViewController = segue.destination as! QRReaderViewController
                 destination.backView = segue.identifier
+                destination.delegate = self
             case "DoneSave"?:
                 Save()
             default: break

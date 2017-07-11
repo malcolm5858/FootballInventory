@@ -74,6 +74,7 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         if metadataObjects == nil || metadataObjects.count == 0{
             return
+            
         }
         
         
@@ -84,11 +85,11 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
-                qrCodeMessage? = metadataObj.stringValue
-                if(self.delegate) != nil{
-                    delegate?.saveQr(qrCode: qrCodeMessage!, backView: backView!)
-                    self.dismiss(animated: true, completion: nil)
-                }
+                qrCodeMessage = metadataObj.stringValue
+                //print(metadataObj.stringValue + "GOTOTOTOTO");
+                //print("Got to work" + metadataObj.stringValue)
+                self.delegate?.saveQr(qrCode: qrCodeMessage!, backView: backView!)
+                self.dismiss(animated: true, completion: nil)
                 
             }
         }
