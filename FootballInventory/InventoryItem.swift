@@ -15,19 +15,22 @@ class inventoryItem{
     var size: NSDictionary = [:]
     let ref: FIRDatabaseReference?
     let price: String
+    var amount: NSMutableDictionary = [:]
     
     init(name: String, price: String, qrCode: String){
         self.name = name
         self.price = price
         self.qrCode = qrCode
+        amount = [:]
         size = [:]
         ref = nil
     }
-    init(name: String, qrCode: String, price: String, size: NSDictionary){
+    init(name: String, qrCode: String, price: String, size: NSDictionary, amount: NSMutableDictionary){
         self.name = name
         self.qrCode = qrCode
         self.price = price
         self.size = size
+        self.amount = amount
         ref = nil
     }
     init(snapshot: FIRDataSnapshot){
@@ -40,6 +43,12 @@ class inventoryItem{
         else{
             self.size = [:]
         }
+        if(snapshotValue["amount"] != nil){
+            self.amount = snapshotValue["amount"] as! NSMutableDictionary
+        }
+        else{
+            self.amount = [:]
+        }
         self.price = snapshotValue["Price"] as! String
         self.ref = snapshot.ref
     }
@@ -49,12 +58,18 @@ class inventoryItem{
         self.qrCode = dictonary["qrCode"] as! String
         self.size = dictonary["size"] as! NSDictionary
         self.price = dictonary["Price"] as! String
+        self.amount = dictonary["amount"] as! NSMutableDictionary
         self.ref = nil
     }
     func toDict() -> Any {
-        return ["name": name, "qrCode": qrCode, "size": size, "Price": price]
+        return ["name": name, "qrCode": qrCode, "size": size, "Price": price, "amount": amount as! NSDictionary]
     }
     
+    func changeSize(size: String, amount: Int){
+        var temp = self.amount[size] as! Int
+        temp += amount
+        self.amount[size] = temp
+    }
     
     
 }

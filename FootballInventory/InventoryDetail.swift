@@ -42,10 +42,12 @@ class InventoryDetail: UIViewController, saveQrDelegate {
     }
     
     func findIfQrIsInInventoryItem(qrCode: String){
-        for item in selectedPlayer?.items
-        for (key, value) in item. {
-            if value as! String == qrCode {
-                performSegue(withIdentifier: "getOut", sender: self)
+        
+        for i in 0 ..< (selectedPlayer?.items.count)! {
+            for (key, value) in (selectedPlayer?.items[i].size)! {
+                if value as! String == qrCode {
+                    performSegue(withIdentifier: "getOut", sender: self)
+                }
             }
         }
     }

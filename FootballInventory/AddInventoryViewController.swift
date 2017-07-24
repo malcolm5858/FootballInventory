@@ -41,6 +41,13 @@ class AddInventoryViewController: UIViewController, saveQrDelegate{
     var xtraLargeQrCode: String?
     var xtraXtraLargeQrCode: String?
     var xtraXtraXtraLargeQrCode: String?
+    //Amount input
+    @IBOutlet weak var SmallAmount: UITextField!
+    @IBOutlet weak var MediumAmount: UITextField!
+    @IBOutlet weak var LargeAmount: UITextField!
+    @IBOutlet weak var XtraLargeAmount: UITextField!
+    @IBOutlet weak var XtraXtraLargeAmount: UITextField!
+    @IBOutlet weak var XtraXtraXtraLargeAmount: UITextField!
     
     
     
@@ -209,26 +216,33 @@ class AddInventoryViewController: UIViewController, saveQrDelegate{
         else{
 
             var sizes: NSMutableDictionary = NSMutableDictionary()
+            var amount: NSMutableDictionary = NSMutableDictionary()
             let label = name.text?.lowercased()
             if(smallQrCode != nil){
                 sizes["Small"] = smallQrCode
+                amount["Small"] = Int(SmallAmount.text!)
             }
             if(mediumQrCode != nil){
                 sizes["medium"] = mediumQrCode
+                amount["medium"] = Int(MediumAmount.text!)
             }
             if(largeQrCode != nil){
                 sizes["Large"] = largeQrCode
+                amount["Large"] = Int(LargeAmount.text!)
             }
             if(xtraLargeQrCode != nil){
                 sizes["XtraLarge"] = xtraLargeQrCode
+                amount["XtraLarge"] = Int(XtraLargeAmount.text!)
             }
             if(xtraXtraLargeQrCode != nil){
                sizes["XtraXtraLarge"] = xtraXtraLargeQrCode
+               amount["XtraXtraLarge"] = Int(XtraXtraLargeAmount.text!)
             }
             if(xtraXtraXtraLargeQrCode != nil){
                sizes["XtraXtraXtraLarge"] = xtraXtraXtraLargeQrCode
+               amount["XtraXtraXtraLarge"] = Int(XtraXtraXtraLargeAmount.text!)
             }
-            let inventory: inventoryItem = inventoryItem(name: name.text!, qrCode: "", price: price.text!, size: sizes)
+            let inventory: inventoryItem = inventoryItem(name: name.text!, qrCode: "", price: price.text!, size: sizes, amount: amount)
             let tempRef = self.ref.child(label!)
             tempRef.setValue(inventory.toDict())
             

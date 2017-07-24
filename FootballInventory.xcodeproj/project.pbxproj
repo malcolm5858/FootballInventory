@@ -19,6 +19,7 @@
 		D97EEBA81EEEDC7F00B0190E /* InventoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97EEBA71EEEDC7F00B0190E /* InventoryDetail.swift */; };
 		D9A5AA9D1E425C0300AE1B01 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A5AA9C1E425C0300AE1B01 /* InventoryViewController.swift */; };
 		D9C1C33D1E44B4E80046158B /* QRReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C1C33C1E44B4E80046158B /* QRReaderViewController.swift */; };
+		D9DA63A51F25A87A006D2AEE /* InventoryofItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DA63A41F25A87A006D2AEE /* InventoryofItems.swift */; };
 		D9F911781E315CA0009CC17C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F911771E315CA0009CC17C /* AppDelegate.swift */; };
 		D9F911821E315CA0009CC17C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9F911811E315CA0009CC17C /* Assets.xcassets */; };
 		D9F911851E315CA0009CC17C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9F911831E315CA0009CC17C /* LaunchScreen.storyboard */; };
@@ -37,6 +38,7 @@
 		D97EEBA71EEEDC7F00B0190E /* InventoryDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryDetail.swift; sourceTree = "<group>"; };
 		D9A5AA9C1E425C0300AE1B01 /* InventoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
 		D9C1C33C1E44B4E80046158B /* QRReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRReaderViewController.swift; sourceTree = "<group>"; };
+		D9DA63A41F25A87A006D2AEE /* InventoryofItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryofItems.swift; sourceTree = "<group>"; };
 		D9F911741E315CA0009CC17C /* FootballInventory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootballInventory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F911771E315CA0009CC17C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9F911811E315CA0009CC17C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				D9728E5B1E43AA68002C3D78 /* AddInventoryViewController.swift */,
 				D9F911811E315CA0009CC17C /* Assets.xcassets */,
 				D97CA2751E3778080083C1CA /* Main.storyboard */,
+				D9DA63A41F25A87A006D2AEE /* InventoryofItems.swift */,
 				D9F911831E315CA0009CC17C /* LaunchScreen.storyboard */,
 				D9F911861E315CA0009CC17C /* Info.plist */,
 				D97CA27C1E3804F10083C1CA /* GoogleService-Info.plist */,
@@ -247,6 +250,7 @@
 				D95056641E3171B800B3FE95 /* ViewControllerAddPlayer.swift in Sources */,
 				D9F911781E315CA0009CC17C /* AppDelegate.swift in Sources */,
 				D926E94C1E40D46A00809812 /* InventoryItem.swift in Sources */,
+				D9DA63A51F25A87A006D2AEE /* InventoryofItems.swift in Sources */,
 				D935F51D1E3911860091BED5 /* Player.swift in Sources */,
 				D97CA2791E3781660083C1CA /* PlayerDetail.swift in Sources */,
 				D97EEBA81EEEDC7F00B0190E /* InventoryDetail.swift in Sources */,
