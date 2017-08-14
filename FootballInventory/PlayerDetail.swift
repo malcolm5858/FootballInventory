@@ -11,14 +11,12 @@ import FirebaseDatabase
 import MessageUI
 
 class PlayerDetail: UIViewController, saveQrDelegate, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate{
-    var firstName = ""
-    var lastName = ""
     var playerIndex = 0
     var selectedPlayer: Player = Player(firstName: "", lastName: "", items: [], email: "")
-    var deleteRowIndex: NSIndexPath? = nil
     var theArray: [inventoryItem] = []
     var addNum = 0
     @IBOutlet weak var tableView: UITableView!
+    var tempSize: String?
     let ref = FIRDatabase.database().reference(withPath: "InventoryItems")
     let ref2 = FIRDatabase.database().reference(withPath: "Players")
     @IBOutlet weak var firstNameLabel: UILabel!
@@ -39,8 +37,13 @@ class PlayerDetail: UIViewController, saveQrDelegate, UITableViewDelegate, UITab
         for x in 0 ..< self.selectedPlayer.items.count {
             totalPrice += Int(selectedPlayer.items[x].price)!
         }
+        var allItems = ""
+        for item in selectedPlayer.items {
+            allItems += item.name + " " + item.qrCode
+            allItems += " <br> "
+        }
         mailVC.setSubject("Equipment not returned")
-        mailVC.setMessageBody("Your child \(firstName) has not returned there equitment worth \(String(totalPrice))$ and needs to be returned or you will be fined", isHTML: false)
+        mailVC.setMessageBody("<p> \(selectedPlayer.firstName) \(selectedPlayer.lastName) has not returned the following football equipment. <br> The replacement cost for the equipment is $\(totalPrice).<br> Please email me at pescij@slcs.us to arrange a time to return <br> the equipment or make a payment. <br> <br> \(allItems) <br> <br> Thank you and Be EAST <br> <br> Coach Pesci  </p>", isHTML: true)
         present(mailVC, animated: true, completion: nil)
     }
     
@@ -51,19 +54,57 @@ class PlayerDetail: UIViewController, saveQrDelegate, UITableViewDelegate, UITab
     
     override func viewDidAppear(_ animated: Bool) {
         addNum = 0
-        firstNameLabel.text = firstName
-        lastNameLabel.text = lastName
+        firstNameLabel.text = selectedPlayer.firstName
+        lastNameLabel.text = selectedPlayer.lastName
+        print(selectedPlayer.items.count)
+        for index in 0..<selectedPlayer.items.count {
+            if selectedPlayer.items[index].isJersey == "true" && selectedPlayer.items[index].jerseyNum == nil {
+                
+                let alert = UIAlertController(title: "Jersey", message: "What Jersey Number", preferredStyle: UIAlertControllerStyle.alert)
+                
+                let action = UIAlertAction(title: "Done", style: .default) {
+                    (alertAction) in
+                    
+                    let textField = alert.textFields![0] as UITextField
+                    self.selectedPlayer.ref?.removeValue()
+                    let temp = self.selectedPlayer.items[index]
+                    self.selectedPlayer.items.remove(at: index)
+                    self.selectedPlayer.itemDicts = []
+                    temp.isJersey = textField.text!
+                    self.selectedPlayer.items.append(temp)
+                    let tempRef = self.ref2.child(self.selectedPlayer.firstName.lowercased())
+                    tempRef.setValue(self.selectedPlayer.toDict())
+                    self.tableView.reloadData()
+                }
+                
+                alert.addTextField { (textField) in
+                    
+                    textField.placeholder = "Enter Jersey Number"
+                    
+                }
+                
+                alert.addAction(action)
+                
+                present(alert, animated: true, completion:  nil)
+                
+            }
+        }
         getDataInArray()
         tableView.reloadData()
-        print(selectedPlayer.items.count)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(selectedPlayer.items.count)
         return selectedPlayer.items.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = selectedPlayer.items[indexPath.row].name
+        var textForCell = selectedPlayer.items[indexPath.row].name + " " + selectedPlayer.items[indexPath.row].qrCode
+        
+        if selectedPlayer.items[indexPath.row].isJersey != "true" && selectedPlayer.items[indexPath.row].isJersey != "false" {
+            textForCell += " " + (selectedPlayer.items[indexPath.row].isJersey as String)
+        }
+        cell.textLabel?.text = textForCell
         return cell
     }
    
@@ -74,8 +115,7 @@ class PlayerDetail: UIViewController, saveQrDelegate, UITableViewDelegate, UITab
             selectedPlayer.itemDicts = []
             let tempRef = ref2.child(selectedPlayer.firstName.lowercased())
             tempRef.setValue(selectedPlayer.toDict())
-            self.tableView.reloadData()
-            deleteRowIndex = nil
+        
         
     }
    
@@ -90,12 +130,16 @@ class PlayerDetail: UIViewController, saveQrDelegate, UITableViewDelegate, UITab
                 var temp: inventoryItem = findQr(inputQrCode: qrCode)
                 if !(temp.name == "" && temp.qrCode == "" && temp.price == ""){
                     selectedPlayer.ref?.removeValue()
+                    selectedPlayer.itemDicts = []
+                    temp.qrCode = tempSize!
                     selectedPlayer.items.append(temp)
                     let tempRef = ref2.child(selectedPlayer.firstName.lowercased())
                     tempRef.setValue(selectedPlayer.toDict())
                     addNum += 1
+                    tempSize = ""
                 }
             }
+            
         }
     }
  
@@ -103,7 +147,7 @@ class PlayerDetail: UIViewController, saveQrDelegate, UITableViewDelegate, UITab
     func findQr(inputQrCode: String) -> inventoryItem{
         //print(inputQrCode)
         //print((theArray[0].size["Small"] as! String))
-        print(selectedPlayer.items.count)
+        //print(selectedPlayer.items.count)
         for item in theArray{
             if item.qrCode == inputQrCode{
                 //print("gotccha")
@@ -112,6 +156,11 @@ class PlayerDetail: UIViewController, saveQrDelegate, UITableViewDelegate, UITab
             for (key, value) in item.size{
                 //print(value as! String)
                 if (value as! String) == inputQrCode {
+                    tempSize = key as! String
+                    item.changeSize(size: tempSize!, amount: -1)
+                    item.ref?.removeValue()
+                    let tempRef = ref.child(item.name.lowercased())
+                    tempRef.setValue(item.toDict())
                     return item
                 }
                 
@@ -143,13 +192,14 @@ class PlayerDetail: UIViewController, saveQrDelegate, UITableViewDelegate, UITab
                 let destination:InventoryDetail = segue.destination as! InventoryDetail,
                 let inventoryIndex = tableView.indexPathForSelectedRow?.row
             {
-                print(inventoryIndex)
+                //print(inventoryIndex)
                 destination.equipmentNameString = selectedPlayer.items[inventoryIndex].name
                 destination.playerNameString = selectedPlayer.firstName + " " + selectedPlayer.lastName
                 destination.equipmentPriceString = selectedPlayer.items[inventoryIndex].price
                 destination.qrCodeDict = selectedPlayer.items[inventoryIndex].size
                 destination.indexToItem = inventoryIndex
                 destination.selectedPlayer = selectedPlayer
+                destination.theArray = self.theArray
             }
         default:
             return

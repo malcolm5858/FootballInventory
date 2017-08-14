@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class InventoryDetail: UIViewController, saveQrDelegate {
 
@@ -21,7 +22,10 @@ class InventoryDetail: UIViewController, saveQrDelegate {
     var qrCodeDict: NSDictionary?
     var indexToItem: Int?
     var selectedPlayer: Player?
-    
+    var isTimeToGetOut: Bool = false
+    var theArray: [inventoryItem]?
+    let ref = FIRDatabase.database().reference(withPath: "InventoryItems")
+    var runAmount = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         PlayerName.text = playerNameString
@@ -29,7 +33,12 @@ class InventoryDetail: UIViewController, saveQrDelegate {
         EquipmentPrice.text = equipmentPriceString
         // Do any additional setup after loading the view.
     }
-
+    override func viewDidAppear(_ animated: Bool) {
+        runAmount = 0
+        if isTimeToGetOut {
+            performSegue(withIdentifier: "getOut", sender: self)
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -43,16 +52,38 @@ class InventoryDetail: UIViewController, saveQrDelegate {
     
     func findIfQrIsInInventoryItem(qrCode: String){
         
-        for i in 0 ..< (selectedPlayer?.items.count)! {
-            for (key, value) in (selectedPlayer?.items[i].size)! {
-                if value as! String == qrCode {
-                    performSegue(withIdentifier: "getOut", sender: self)
+        
+        
+            if selectedPlayer?.items[indexToItem!].size[selectedPlayer?.items[indexToItem!].qrCode] as! String == qrCode {
+                
+                isTimeToGetOut = true
+                if runAmount == 0 {
+                    findQr(inputQrCode: qrCode)
+                    runAmount += 1
                 }
-            }
         }
     }
     
-    
+    func findQr(inputQrCode: String){
+        //print(inputQrCode)
+        //print((theArray[0].size["Small"] as! String))
+        //print(selectedPlayer.items.count)
+        for item in theArray!{
+            if item.qrCode == inputQrCode{
+            }
+            for (key, value) in item.size{
+                //print(value as! String)
+                if (value as! String) == inputQrCode {
+                    item.changeSize(size: (key as! String), amount: 1)
+                    item.ref?.removeValue()
+                    let tempRef = ref.child(item.name.lowercased())
+                    tempRef.setValue(item.toDict())
+                   
+                }
+                
+            }
+        }
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -67,6 +98,10 @@ class InventoryDetail: UIViewController, saveQrDelegate {
             let destination:PlayerDetail = segue.destination as! PlayerDetail
             destination.selectedPlayer = selectedPlayer!
             destination.handleDeleteInventoryItem(indexToItem: indexToItem!)
+        }
+        if segue.identifier == "Done" {
+            let destination:PlayerDetail = segue.destination as! PlayerDetail
+            destination.selectedPlayer = selectedPlayer!
         }
     }
     

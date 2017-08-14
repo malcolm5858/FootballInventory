@@ -11,26 +11,30 @@ import FirebaseDatabase
 class inventoryItem{
     
     let name: String
-    let qrCode: String
+    var qrCode: String
     var size: NSDictionary = [:]
     let ref: FIRDatabaseReference?
     let price: String
     var amount: NSMutableDictionary = [:]
+    var isJersey: String
+    var jerseyNum: String?
     
     init(name: String, price: String, qrCode: String){
         self.name = name
         self.price = price
         self.qrCode = qrCode
+        isJersey = ""
         amount = [:]
         size = [:]
         ref = nil
     }
-    init(name: String, qrCode: String, price: String, size: NSDictionary, amount: NSMutableDictionary){
+    init(name: String, qrCode: String, price: String, size: NSDictionary, amount: NSMutableDictionary, isJersey: String){
         self.name = name
         self.qrCode = qrCode
         self.price = price
         self.size = size
         self.amount = amount
+        self.isJersey = isJersey
         ref = nil
     }
     init(snapshot: FIRDataSnapshot){
@@ -50,6 +54,7 @@ class inventoryItem{
             self.amount = [:]
         }
         self.price = snapshotValue["Price"] as! String
+        self.isJersey = snapshotValue["isJersey"] as! String
         self.ref = snapshot.ref
     }
     init(dictonary: NSDictionary)
@@ -59,10 +64,11 @@ class inventoryItem{
         self.size = dictonary["size"] as! NSDictionary
         self.price = dictonary["Price"] as! String
         self.amount = dictonary["amount"] as! NSMutableDictionary
+        self.isJersey = dictonary["isJersey"] as! String
         self.ref = nil
     }
     func toDict() -> Any {
-        return ["name": name, "qrCode": qrCode, "size": size, "Price": price, "amount": amount as! NSDictionary]
+        return ["name": name, "qrCode": qrCode, "size": size, "Price": price, "amount": amount as NSDictionary, "isJersey": isJersey]
     }
     
     func changeSize(size: String, amount: Int){

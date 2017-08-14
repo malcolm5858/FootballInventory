@@ -48,6 +48,9 @@ class AddInventoryViewController: UIViewController, saveQrDelegate{
     @IBOutlet weak var XtraLargeAmount: UITextField!
     @IBOutlet weak var XtraXtraLargeAmount: UITextField!
     @IBOutlet weak var XtraXtraXtraLargeAmount: UITextField!
+    // is Jersey
+    @IBOutlet weak var isJersey: UISwitch!
+    
     
     
     
@@ -206,14 +209,7 @@ class AddInventoryViewController: UIViewController, saveQrDelegate{
     
     func Save() {
         
-        if !Small.isOn{
-            print("No")
-            let inventoryTemp = inventoryItem(name: name.text!, price: price.text!, qrCode: "")
-            
-            let tempRef = self.ref.child((name.text?.lowercased())!)
-            tempRef.setValue(inventoryTemp.toDict())
-        }
-        else{
+        
 
             var sizes: NSMutableDictionary = NSMutableDictionary()
             var amount: NSMutableDictionary = NSMutableDictionary()
@@ -242,11 +238,17 @@ class AddInventoryViewController: UIViewController, saveQrDelegate{
                sizes["XtraXtraXtraLarge"] = xtraXtraXtraLargeQrCode
                amount["XtraXtraXtraLarge"] = Int(XtraXtraXtraLargeAmount.text!)
             }
-            let inventory: inventoryItem = inventoryItem(name: name.text!, qrCode: "", price: price.text!, size: sizes, amount: amount)
+            var isJerseyText = ""
+            if isJersey.isOn {
+                isJerseyText = "true"
+            }else {
+                isJerseyText = "false"
+            }
+            let inventory: inventoryItem = inventoryItem(name: name.text!, qrCode: "", price: price.text!, size: sizes, amount: amount, isJersey: isJerseyText)
             let tempRef = self.ref.child(label!)
             tempRef.setValue(inventory.toDict())
             
-        }
+        
         
         
         

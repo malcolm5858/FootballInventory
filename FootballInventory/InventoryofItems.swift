@@ -24,7 +24,9 @@ class InventoryofItems: UIViewController, UITableViewDataSource,UITableViewDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        TableView.delegate = self
+        TableView.dataSource = self
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -42,7 +44,7 @@ class InventoryofItems: UIViewController, UITableViewDataSource,UITableViewDeleg
             for (key, value) in items[i].amount{
                 if(value != nil) {
                     numRows += 1
-                    names.append(items[i].name + " " + (key as! String).capitalized + ": " + (value as! String))
+                    names.append(items[i].name + " " + (key as! String).capitalized + ": " + (NSString(format: "%@", value as! CVarArg) as String))
                 }
             }
         }

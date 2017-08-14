@@ -66,8 +66,6 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
             let destination:PlayerDetail = segue.destination as! PlayerDetail,
             let playerIndex = tableView.indexPathForSelectedRow?.row
         {
-            destination.firstName = players[playerIndex].firstName
-            destination.lastName = players[playerIndex].lastName
             destination.playerIndex = playerIndex
             destination.selectedPlayer = players[playerIndex]
         }

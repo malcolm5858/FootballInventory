@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		843E8C30FFBCBF4C24401A53 /* Pods_FootballInventory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7EFFDE927E3243B25D23307 /* Pods_FootballInventory.framework */; };
 		D9111A261E36E8370040E8E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9111A251E36E8370040E8E9 /* ViewController.swift */; };
 		D926E94C1E40D46A00809812 /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D926E94B1E40D46A00809812 /* InventoryItem.swift */; };
 		D935F51D1E3911860091BED5 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D935F51C1E3911860091BED5 /* Player.swift */; };
@@ -17,6 +16,7 @@
 		D97CA2791E3781660083C1CA /* PlayerDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97CA2781E3781660083C1CA /* PlayerDetail.swift */; };
 		D97CA27D1E3804F10083C1CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D97CA27C1E3804F10083C1CA /* GoogleService-Info.plist */; };
 		D97EEBA81EEEDC7F00B0190E /* InventoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97EEBA71EEEDC7F00B0190E /* InventoryDetail.swift */; };
+		D997D2301F32A7B2005679CB /* football-clip-art-RiGELRMiL.png in Resources */ = {isa = PBXBuildFile; fileRef = D997D22F1F32A7B2005679CB /* football-clip-art-RiGELRMiL.png */; };
 		D9A5AA9D1E425C0300AE1B01 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A5AA9C1E425C0300AE1B01 /* InventoryViewController.swift */; };
 		D9C1C33D1E44B4E80046158B /* QRReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C1C33C1E44B4E80046158B /* QRReaderViewController.swift */; };
 		D9DA63A51F25A87A006D2AEE /* InventoryofItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DA63A41F25A87A006D2AEE /* InventoryofItems.swift */; };
@@ -26,7 +26,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		417FA33080C95F502BD8D90B /* Pods-FootballInventory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FootballInventory.release.xcconfig"; path = "Pods/Target Support Files/Pods-FootballInventory/Pods-FootballInventory.release.xcconfig"; sourceTree = "<group>"; };
 		D9111A251E36E8370040E8E9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D926E94B1E40D46A00809812 /* InventoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
 		D935F51C1E3911860091BED5 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -36,6 +35,7 @@
 		D97CA2781E3781660083C1CA /* PlayerDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerDetail.swift; sourceTree = "<group>"; };
 		D97CA27C1E3804F10083C1CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D97EEBA71EEEDC7F00B0190E /* InventoryDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryDetail.swift; sourceTree = "<group>"; };
+		D997D22F1F32A7B2005679CB /* football-clip-art-RiGELRMiL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "football-clip-art-RiGELRMiL.png"; sourceTree = "<group>"; };
 		D9A5AA9C1E425C0300AE1B01 /* InventoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
 		D9C1C33C1E44B4E80046158B /* QRReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRReaderViewController.swift; sourceTree = "<group>"; };
 		D9DA63A41F25A87A006D2AEE /* InventoryofItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryofItems.swift; sourceTree = "<group>"; };
@@ -45,7 +45,6 @@
 		D9F911841E315CA0009CC17C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9F911861E315CA0009CC17C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF504022A4B94F74E72625B3 /* Pods-FootballInventory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FootballInventory.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FootballInventory/Pods-FootballInventory.debug.xcconfig"; sourceTree = "<group>"; };
-		F7EFFDE927E3243B25D23307 /* Pods_FootballInventory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FootballInventory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +52,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				843E8C30FFBCBF4C24401A53 /* Pods_FootballInventory.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,17 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				DF504022A4B94F74E72625B3 /* Pods-FootballInventory.debug.xcconfig */,
-				417FA33080C95F502BD8D90B /* Pods-FootballInventory.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		BB880ED9F8B9F18B40BFD9C2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F7EFFDE927E3243B25D23307 /* Pods_FootballInventory.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D9F9116B1E315C9F009CC17C = {
@@ -83,7 +72,6 @@
 				D9F911761E315CA0009CC17C /* FootballInventory */,
 				D9F911751E315CA0009CC17C /* Products */,
 				309E86FEA31290C9C6269352 /* Pods */,
-				BB880ED9F8B9F18B40BFD9C2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,13 +95,14 @@
 				D9A5AA9C1E425C0300AE1B01 /* InventoryViewController.swift */,
 				D9C1C33C1E44B4E80046158B /* QRReaderViewController.swift */,
 				D9728E5B1E43AA68002C3D78 /* AddInventoryViewController.swift */,
+				D9DA63A41F25A87A006D2AEE /* InventoryofItems.swift */,
+				D97EEBA71EEEDC7F00B0190E /* InventoryDetail.swift */,
 				D9F911811E315CA0009CC17C /* Assets.xcassets */,
 				D97CA2751E3778080083C1CA /* Main.storyboard */,
-				D9DA63A41F25A87A006D2AEE /* InventoryofItems.swift */,
 				D9F911831E315CA0009CC17C /* LaunchScreen.storyboard */,
 				D9F911861E315CA0009CC17C /* Info.plist */,
 				D97CA27C1E3804F10083C1CA /* GoogleService-Info.plist */,
-				D97EEBA71EEEDC7F00B0190E /* InventoryDetail.swift */,
+				D997D22F1F32A7B2005679CB /* football-clip-art-RiGELRMiL.png */,
 			);
 			path = FootballInventory;
 			sourceTree = "<group>";
@@ -153,7 +142,7 @@
 				TargetAttributes = {
 					D9F911731E315C9F009CC17C = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = C898Z78FP7;
+						DevelopmentTeam = UN9XR9D9UV;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -182,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D97CA2771E3778080083C1CA /* Main.storyboard in Resources */,
+				D997D2301F32A7B2005679CB /* football-clip-art-RiGELRMiL.png in Resources */,
 				D97CA27D1E3804F10083C1CA /* GoogleService-Info.plist in Resources */,
 				D9F911851E315CA0009CC17C /* LaunchScreen.storyboard in Resources */,
 				D9F911821E315CA0009CC17C /* Assets.xcassets in Resources */,
@@ -378,28 +368,29 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = C898Z78FP7;
+				DEVELOPMENT_TEAM = UN9XR9D9UV;
 				INFOPLIST_FILE = FootballInventory/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = malcolm.FootballInventory;
+				PRODUCT_BUNDLE_IDENTIFIER = malcolmAp.FootballInventory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		D9F9118B1E315CA0009CC17C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 417FA33080C95F502BD8D90B /* Pods-FootballInventory.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = C898Z78FP7;
+				DEVELOPMENT_TEAM = UN9XR9D9UV;
 				INFOPLIST_FILE = FootballInventory/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = malcolm.FootballInventory;
+				PRODUCT_BUNDLE_IDENTIFIER = malcolmAp.FootballInventory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
