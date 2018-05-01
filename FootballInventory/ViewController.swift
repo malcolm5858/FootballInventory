@@ -18,7 +18,7 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     var tempLastName = ""
     var deleteRowIndex: NSIndexPath? = nil
     
-    let ref = FIRDatabase.database().reference(withPath: "Players")
+    let ref = Database.database().reference(withPath: "Players")
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -48,8 +48,9 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = players[indexPath.row].firstName + " " + players[indexPath.row].lastName
+        cell.textLabel?.text = players[indexPath.row].lastName + " " + players[indexPath.row].firstName
         return cell
+        
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -76,7 +77,7 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
             var newPlayers: [Player] = []
             
             for item in snapshot.children {
-                newPlayers.append(Player(snapshot: item as! FIRDataSnapshot))
+                newPlayers.append(Player(snapshot: item as! DataSnapshot))
             }
             
             self.players = newPlayers

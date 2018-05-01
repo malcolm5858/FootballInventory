@@ -15,7 +15,7 @@ class InventoryofItems: UIViewController, UITableViewDataSource,UITableViewDeleg
     
     
     @IBOutlet weak var TableView: UITableView!
-    let ref = FIRDatabase.database().reference(withPath: "InventoryItems")
+    let ref = Database.database().reference(withPath: "InventoryItems")
     
     var items: [inventoryItem] = []
     
@@ -61,7 +61,7 @@ class InventoryofItems: UIViewController, UITableViewDataSource,UITableViewDeleg
             var newItems: [inventoryItem] = []
             
             for item in snapshot.children {
-                newItems.append(inventoryItem(snapshot: item as! FIRDataSnapshot))
+                newItems.append(inventoryItem(snapshot: item as! DataSnapshot))
             }
             self.items = newItems
             self.TableView.reloadData()

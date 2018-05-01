@@ -14,7 +14,7 @@ class InventoryViewController: UIViewController, UITableViewDataSource, UITableV
     var Inventory: [inventoryItem] = []
     var deleteRowIndex: NSIndexPath? = nil
     
-    let ref = FIRDatabase.database().reference(withPath: "InventoryItems")
+    let ref = Database.database().reference(withPath: "InventoryItems")
     
     
     
@@ -49,7 +49,7 @@ class InventoryViewController: UIViewController, UITableViewDataSource, UITableV
             
             for item in snapshot.children {
                 //print(item)
-                newInventory.append(inventoryItem(snapshot: item as! FIRDataSnapshot))
+                newInventory.append(inventoryItem(snapshot: item as! DataSnapshot))
             }
             
             self.Inventory = newInventory

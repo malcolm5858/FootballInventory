@@ -24,7 +24,7 @@ class InventoryDetail: UIViewController, saveQrDelegate {
     var selectedPlayer: Player?
     var isTimeToGetOut: Bool = false
     var theArray: [inventoryItem]?
-    let ref = FIRDatabase.database().reference(withPath: "InventoryItems")
+    let ref = Database.database().reference(withPath: "InventoryItems")
     var runAmount = 0
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -9,7 +9,6 @@
 import UIKit
 import CoreData
 import Firebase
-import FirebaseAuth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,18 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var storyboard: UIStoryboard?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        FIRApp.configure()
+        FirebaseApp.configure()
         
         self.storyboard =  UIStoryboard(name: "Main", bundle: Bundle.main)
         
-        let currentUser = FIRAuth.auth()?.currentUser
+        let currentUser = Auth.auth().currentUser
         if currentUser != nil
         {
             self.window?.rootViewController = self.storyboard?.instantiateViewController(withIdentifier: "Menu")
         }
         else
         {
-         self.window?.rootViewController = self.storyboard?.instantiateViewController(withIdentifier: "Menu")
+         self.window?.rootViewController = self.storyboard?.instantiateViewController(withIdentifier: "login")
         }
         return true
     }

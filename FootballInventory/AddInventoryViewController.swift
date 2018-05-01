@@ -12,7 +12,7 @@ import FirebaseDatabase
 class AddInventoryViewController: UIViewController, saveQrDelegate{
 
     
-        var ref: FIRDatabaseReference!
+        var ref: DatabaseReference!
     
     // UISwitch's
    // @IBOutlet weak var HasSizes: UISwitch!
@@ -77,7 +77,7 @@ class AddInventoryViewController: UIViewController, saveQrDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
                 // Do any additional setup after loading the view.
-        ref = FIRDatabase.database().reference(withPath: "InventoryItems")
+        ref = Database.database().reference(withPath: "InventoryItems")
 
     }
 

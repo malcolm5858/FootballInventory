@@ -2,28 +2,49 @@
 //  SignInViewController.swift
 //  FootballInventory
 //
-//  Created by Malcolm Machesky on 1/30/17.
-//  Copyright © 2017 Malcolm Machesky. All rights reserved.
+//  Created by Malcolm Machesky on 4/30/18.
+//  Copyright © 2018 Malcolm Machesky. All rights reserved.
 //
 
 import UIKit
+import Firebase
 
 class SignInViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
+    @IBOutlet weak var EmailTextView: UITextField!
+    @IBOutlet weak var PasswordTextView: UITextField!
     
-    func signInUSer(){
+    private var email: String?
+    private var password: String?
+    
+    private var currentUser: User?
+    
+    @IBAction func DoneUIButton(_ sender: Any) {
+    
+        //Give values to private vars
+        email = EmailTextView.text
+        password = PasswordTextView.text
+        
+        //Auth
+        Auth.auth().signIn(withEmail: email!, password: password!) { (user, error) in
+            if user != nil {
+                self.performSegue(withIdentifier: "signInSegue", sender: sender)
+            }
+        }
         
     }
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil {
+                 self.performSegue(withIdentifier: "signInSegue", sender: nil)
+            }
+        }
+    }
+    
+    
+    
+    
 }

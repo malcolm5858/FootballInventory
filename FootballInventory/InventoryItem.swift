@@ -13,7 +13,7 @@ class inventoryItem{
     let name: String
     var qrCode: String
     var size: NSDictionary = [:]
-    let ref: FIRDatabaseReference?
+    let ref: DatabaseReference?
     let price: String
     var amount: NSMutableDictionary = [:]
     var isJersey: String
@@ -37,7 +37,7 @@ class inventoryItem{
         self.isJersey = isJersey
         ref = nil
     }
-    init(snapshot: FIRDataSnapshot){
+    init(snapshot: DataSnapshot){
         let snapshotValue = snapshot.value as! [String: AnyObject]
         self.name = snapshotValue["name"] as! String
         self.qrCode = snapshotValue["qrCode"] as! String

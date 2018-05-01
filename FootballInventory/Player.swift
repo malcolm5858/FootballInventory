@@ -12,7 +12,7 @@ import FirebaseDatabase
 public class Player{
     let firstName: String
     let lastName: String
-    let ref: FIRDatabaseReference?
+    let ref: DatabaseReference?
     var items: [inventoryItem]
     var itemDicts: [NSDictionary]
     var email: String
@@ -27,7 +27,7 @@ public class Player{
         self.email = email
     }
     
-    init(snapshot: FIRDataSnapshot){
+    init(snapshot: DataSnapshot){
         let snapshotValue = snapshot.value as! [String: AnyObject]
         self.firstName = snapshotValue["firstName"] as! String
         self.lastName = snapshotValue["lastName"] as! String

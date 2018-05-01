@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		542D692AF205E4F11486081A /* Pods_FootballInventory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A50BB23E76C49E2D060E2F1D /* Pods_FootballInventory.framework */; };
 		D9111A261E36E8370040E8E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9111A251E36E8370040E8E9 /* ViewController.swift */; };
 		D926E94C1E40D46A00809812 /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D926E94B1E40D46A00809812 /* InventoryItem.swift */; };
 		D935F51D1E3911860091BED5 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D935F51C1E3911860091BED5 /* Player.swift */; };
 		D95056641E3171B800B3FE95 /* ViewControllerAddPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95056631E3171B800B3FE95 /* ViewControllerAddPlayer.swift */; };
+		D950FB292097EC5B0087A1F4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D950FB282097EC5B0087A1F4 /* SignInViewController.swift */; };
 		D9728E5C1E43AA68002C3D78 /* AddInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9728E5B1E43AA68002C3D78 /* AddInventoryViewController.swift */; };
 		D97CA2771E3778080083C1CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97CA2751E3778080083C1CA /* Main.storyboard */; };
 		D97CA2791E3781660083C1CA /* PlayerDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97CA2781E3781660083C1CA /* PlayerDetail.swift */; };
@@ -26,10 +28,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A50BB23E76C49E2D060E2F1D /* Pods_FootballInventory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FootballInventory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D44FDF9DE3D4C67E05E09372 /* Pods-FootballInventory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FootballInventory.release.xcconfig"; path = "Pods/Target Support Files/Pods-FootballInventory/Pods-FootballInventory.release.xcconfig"; sourceTree = "<group>"; };
 		D9111A251E36E8370040E8E9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D926E94B1E40D46A00809812 /* InventoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
 		D935F51C1E3911860091BED5 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		D95056631E3171B800B3FE95 /* ViewControllerAddPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAddPlayer.swift; sourceTree = "<group>"; };
+		D950FB282097EC5B0087A1F4 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D9728E5B1E43AA68002C3D78 /* AddInventoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddInventoryViewController.swift; sourceTree = "<group>"; };
 		D97CA2761E3778080083C1CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D97CA2781E3781660083C1CA /* PlayerDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerDetail.swift; sourceTree = "<group>"; };
@@ -52,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				542D692AF205E4F11486081A /* Pods_FootballInventory.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,8 +68,17 @@
 			isa = PBXGroup;
 			children = (
 				DF504022A4B94F74E72625B3 /* Pods-FootballInventory.debug.xcconfig */,
+				D44FDF9DE3D4C67E05E09372 /* Pods-FootballInventory.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8E81EBC8425E75192CFB580C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A50BB23E76C49E2D060E2F1D /* Pods_FootballInventory.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D9F9116B1E315C9F009CC17C = {
@@ -72,6 +87,7 @@
 				D9F911761E315CA0009CC17C /* FootballInventory */,
 				D9F911751E315CA0009CC17C /* Products */,
 				309E86FEA31290C9C6269352 /* Pods */,
+				8E81EBC8425E75192CFB580C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +113,7 @@
 				D9728E5B1E43AA68002C3D78 /* AddInventoryViewController.swift */,
 				D9DA63A41F25A87A006D2AEE /* InventoryofItems.swift */,
 				D97EEBA71EEEDC7F00B0190E /* InventoryDetail.swift */,
+				D950FB282097EC5B0087A1F4 /* SignInViewController.swift */,
 				D9F911811E315CA0009CC17C /* Assets.xcassets */,
 				D97CA2751E3778080083C1CA /* Main.storyboard */,
 				D9F911831E315CA0009CC17C /* LaunchScreen.storyboard */,
@@ -142,7 +159,7 @@
 				TargetAttributes = {
 					D9F911731E315C9F009CC17C = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = UN9XR9D9UV;
+						DevelopmentTeam = C898Z78FP7;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -187,9 +204,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FootballInventory/Pods-FootballInventory-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -202,9 +230,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FootballInventory/Pods-FootballInventory-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -217,13 +248,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FootballInventory-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -241,6 +275,7 @@
 				D9F911781E315CA0009CC17C /* AppDelegate.swift in Sources */,
 				D926E94C1E40D46A00809812 /* InventoryItem.swift in Sources */,
 				D9DA63A51F25A87A006D2AEE /* InventoryofItems.swift in Sources */,
+				D950FB292097EC5B0087A1F4 /* SignInViewController.swift in Sources */,
 				D935F51D1E3911860091BED5 /* Player.swift in Sources */,
 				D97CA2791E3781660083C1CA /* PlayerDetail.swift in Sources */,
 				D97EEBA81EEEDC7F00B0190E /* InventoryDetail.swift in Sources */,
@@ -367,12 +402,15 @@
 			baseConfigurationReference = DF504022A4B94F74E72625B3 /* Pods-FootballInventory.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_INFINITE_RECURSION = NO;
+				CLANG_WARN_SUSPICIOUS_MOVE = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = UN9XR9D9UV;
+				DEVELOPMENT_TEAM = C898Z78FP7;
+				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = FootballInventory/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = malcolmAp.FootballInventory;
+				PRODUCT_BUNDLE_IDENTIFIER = Malcolm.FootballInventory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
@@ -381,14 +419,18 @@
 		};
 		D9F9118B1E315CA0009CC17C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D44FDF9DE3D4C67E05E09372 /* Pods-FootballInventory.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_INFINITE_RECURSION = NO;
+				CLANG_WARN_SUSPICIOUS_MOVE = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = UN9XR9D9UV;
+				DEVELOPMENT_TEAM = C898Z78FP7;
+				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = FootballInventory/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = malcolmAp.FootballInventory;
+				PRODUCT_BUNDLE_IDENTIFIER = Malcolm.FootballInventory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;

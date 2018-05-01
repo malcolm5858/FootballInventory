@@ -17,8 +17,8 @@ class PlayerDetail: UIViewController, saveQrDelegate, UITableViewDelegate, UITab
     var addNum = 0
     @IBOutlet weak var tableView: UITableView!
     var tempSize: String?
-    let ref = FIRDatabase.database().reference(withPath: "InventoryItems")
-    let ref2 = FIRDatabase.database().reference(withPath: "Players")
+    let ref = Database.database().reference(withPath: "InventoryItems")
+    let ref2 = Database.database().reference(withPath: "Players")
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
     override func viewDidLoad() {
@@ -72,7 +72,7 @@ class PlayerDetail: UIViewController, saveQrDelegate, UITableViewDelegate, UITab
                     self.selectedPlayer.itemDicts = []
                     temp.isJersey = textField.text!
                     self.selectedPlayer.items.append(temp)
-                    let tempRef = self.ref2.child(self.selectedPlayer.firstName.lowercased())
+                    let tempRef = self.ref2.child(self.selectedPlayer.firstName.lowercased() + " " + self.selectedPlayer.lastName.lowercased())
                     tempRef.setValue(self.selectedPlayer.toDict())
                     self.tableView.reloadData()
                 }
@@ -113,7 +113,7 @@ class PlayerDetail: UIViewController, saveQrDelegate, UITableViewDelegate, UITab
             selectedPlayer.ref?.removeValue()
             selectedPlayer.items.remove(at: indexToItem)
             selectedPlayer.itemDicts = []
-            let tempRef = ref2.child(selectedPlayer.firstName.lowercased())
+            let tempRef = ref2.child(selectedPlayer.firstName.lowercased() + " " + selectedPlayer.lastName.lowercased())
             tempRef.setValue(selectedPlayer.toDict())
         
         
@@ -133,7 +133,7 @@ class PlayerDetail: UIViewController, saveQrDelegate, UITableViewDelegate, UITab
                     selectedPlayer.itemDicts = []
                     temp.qrCode = tempSize!
                     selectedPlayer.items.append(temp)
-                    let tempRef = ref2.child(selectedPlayer.firstName.lowercased())
+                    let tempRef = ref2.child(selectedPlayer.firstName.lowercased() + " " + selectedPlayer.lastName.lowercased())
                     tempRef.setValue(selectedPlayer.toDict())
                     addNum += 1
                     tempSize = ""
@@ -173,7 +173,7 @@ class PlayerDetail: UIViewController, saveQrDelegate, UITableViewDelegate, UITab
             var temp: [inventoryItem] = []
             
             for item in snapshot.children{
-                temp.append(inventoryItem(snapshot: item as! FIRDataSnapshot))
+                temp.append(inventoryItem(snapshot: item as! DataSnapshot))
             }
             
             self.theArray = temp
